@@ -1,5 +1,20 @@
-# Homebrew Tap for PlanQ
+# PlanQ Homebrew Tap
 
-This is the official Homebrew tap infrastructure for [PlanQ](https://planq.dev).
+PlanQ is a Git-native planning DSL, validator, formatter, and read-only Gantt
+tool.
 
-Formula and installation instructions are not available yet. They will be added only after the PlanQ CLI distribution flow passes installation validation.
+## Install
+
+```bash
+brew install planq-cli/tap/planq
+planq version
+```
+
+Current formula version: `0.1.0`.
+
+- [Documentation](https://planq.dev/docs/)
+- [Installation and supported platforms](https://planq.dev/docs/install)
+- [Five-minute Quickstart](https://planq.dev/docs/quickstart)
+- [Release archives and checksums](https://github.com/planq-cli/plan-releases/releases/tag/v0.1.0)
+
+PlanQ is licensed under `PolyForm-Noncommercial-1.0.0`.

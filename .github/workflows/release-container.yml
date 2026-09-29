@@ -3,6 +3,7 @@ name: release-container
 on:
   pull_request:
     paths:
+      - "README.md"
       - "Formula/**"
       - ".github/workflows/**"
 
@@ -23,6 +24,16 @@ jobs:
           test -f Formula/planq.rb
           test "$(find Formula -type f | sort)" = "Formula/planq.rb"
           ! find Formula -type l | grep .
+      - name: Validate public README
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="$(sed -n 's#.*releases/download/v\([^/]*\)/.*#\1#p' Formula/planq.rb)"
+          test -n "${version}"
+          grep -F 'https://planq.dev/docs/' README.md
+          grep -F 'https://planq.dev/docs/install' README.md
+          grep -F "Current formula version: \`${version}\`." README.md
+          ! grep -F 'not available yet' README.md
       - name: Audit formula
         shell: bash
         run: |
